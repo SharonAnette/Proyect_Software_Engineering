@@ -1,13 +1,13 @@
-const { Pool } = require("pg");
-require('dotenv').config(); // Para cargar variables de entorno desde un archivo .env
+const { Pool } = require('pg');
 
-// Configura los parámetros de conexión usando variables de entorno
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+    user: 'postgres',
+    host: 'localhost',
+    database: 'severlaaeneta',
+    password: 'root',
+    port: 5432,
 });
 
-module.exports = pool;
+module.exports = {
+    query: (text, params) => pool.query(text, params),
+};

@@ -11,9 +11,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Sirve archivos estáticos desde el directorio "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta para servir index.html
+// Ruta para servir registrarTesis.html
+app.get('/registrarTesis', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'registrarTesis.html'));
+});
+
+// Ruta para servir paginaPrincipal.html
+app.get('/paginaPrincipal', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'paginaPrincipal.html'));
+});
+
+// Ruta para la raíz que sirve paginaPrincipal.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'paginaPrincipal.html'));
 });
 
 // Ruta para obtener todos los asesores

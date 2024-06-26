@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS public.tesis
     titulo_de_tesis character varying(255) COLLATE pg_catalog."default",
     fecha_de_publicacion date,
     archivo_pdf bytea,
+    carrera character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT tesis_pkey PRIMARY KEY (id_tesis)
 );
 

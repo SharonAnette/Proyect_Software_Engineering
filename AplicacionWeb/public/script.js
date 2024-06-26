@@ -115,6 +115,7 @@ document.getElementById('thesis-form').addEventListener('submit', async function
     const formData = new FormData();
     formData.append('titulo_de_tesis', document.getElementById('titulo').value);
     formData.append('fecha_de_publicacion', document.getElementById('fecha').value);
+    formData.append('carrera', document.getElementById('carrera').value);
     formData.append('archivo_pdf', document.getElementById('archivo').files[0]);
 
     const autores = Array.from(document.getElementsByClassName('autor')).map(autor => ({
@@ -135,6 +136,7 @@ document.getElementById('thesis-form').addEventListener('submit', async function
     const body = {
         titulo_de_tesis: document.getElementById('titulo').value,
         fecha_de_publicacion: document.getElementById('fecha').value,
+        carrera: document.getElementById('carrera').value,
         archivo_pdf: document.getElementById('archivo').files[0],
         autores,
         asesores,

@@ -115,51 +115,32 @@
           <input type="date" id="fecha" name="fecha" required />
         </div>
         <div class="form-group">
+          <label for="carrera">Carrera:</label>
+          <select id="carrera" name="carrera" required>
+            <option value="Ingenieria en Sistemas Computacionales">Ingenieria en Sistemas Computacionales</option>
+            <option value="Ingenieria en Inteligencia Artificial">Ingenieria en Inteligencia Artificial</option>
+            <option value="Licenciatura en Ciencia de Datos">Licenciatura en Ciencia de Datos</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="archivo">Archivo PDF:</label>
-          <input
-            type="file"
-            id="archivo"
-            name="archivo"
-            accept="application/pdf"
-            required
-          />
+          <input type="file" id="archivo" name="archivo" accept="application/pdf" required />
         </div>
         <div class="form-group">
           <label>Autores:</label>
           <div id="autores-container" class="autores-container">
             <div class="autor">
-              <input
-                type="text"
-                placeholder="Apellido Paterno"
-                class="apellido-paterno"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Apellido Materno"
-                class="apellido-materno"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Nombre(s)"
-                class="nombres"
-                required
-              />
-              <button type="button" onclick="removeAuthor(this)">
-                Eliminar
-              </button>
+              <input type="text" placeholder="Apellido Paterno" class="apellido-paterno" required />
+              <input type="text" placeholder="Apellido Materno" class="apellido-materno" required />
+              <input type="text" placeholder="Nombre(s)" class="nombres" required />
+              <button type="button" onclick="removeAuthor(this)">Eliminar</button>
             </div>
           </div>
           <button type="button" onclick="addAuthor()">Agregar Autor</button>
         </div>
         <div class="form-group">
           <label for="asesor-principal">Asesor Principal:</label>
-          <select
-            id="asesor-principal"
-            name="asesor-principal"
-            required
-          ></select>
+          <select id="asesor-principal" name="asesor-principal" required></select>
         </div>
         <div class="form-group">
           <label for="asesor-secundario">Asesor Secundario (Opcional):</label>
@@ -171,15 +152,12 @@
           <label>Etiquetas:</label>
           <div id="etiquetas" class="etiquetas-container"></div>
         </div>
-        <div
-          id="error-message"
-          class="error-message"
-          style="display: none"
-        ></div>
+        <div id="error-message" class="error-message" style="display: none"></div>
         <button type="submit">Registrar Tesis</button>
       </form>
     </div>
     <script src="script.js"></script>
+    
 
     <br />
     <!-- DERECHOS RESERVADOS Y CONTACTO-->

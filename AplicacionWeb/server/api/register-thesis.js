@@ -6,6 +6,7 @@ router.post("/", async (req, res) => {
   const {
     titulo_de_tesis,
     fecha_de_publicacion,
+    carrera,
     archivo_pdf,
     autores,
     asesores,
@@ -38,8 +39,8 @@ router.post("/", async (req, res) => {
 
     // Insertar la nueva tesis
     const nuevaTesis = await db.query(
-      "INSERT INTO tesis (titulo_de_tesis, fecha_de_publicacion, archivo_pdf) VALUES ($1, $2, $3) RETURNING id_tesis",
-      [titulo_de_tesis, fecha_de_publicacion, archivo_pdf]
+      "INSERT INTO tesis (titulo_de_tesis, fecha_de_publicacion, carrera, archivo_pdf) VALUES ($1, $2, $3, $4) RETURNING id_tesis",
+      [titulo_de_tesis, fecha_de_publicacion, carrera, archivo_pdf]
     );
     const id_tesis = nuevaTesis.rows[0].id_tesis;
 

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body,
+      h2,
+      p {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f2f2f2;
+      }
+
+      .login-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .login-form h2 {
+        margin-bottom: 1rem;
+        color: #333;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group-a {
+        margin-bottom: 1rem;
+      }
+
+      .form-group label {
+        margin-bottom: 0.5rem;
+        color: #666;
+      }
+
+      .form-group-a label {
+        margin-bottom: 0.5rem;
+        color: #666;
+      }
+
+      .form-group-a input,
+      .form-group-a select {
+        width: 93.5%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+
+      .form-group-a input:focus,
+      .form-group-a select:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+
+      button {
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        background: #007bff;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      .error-message {
+        color: #ff0000;
+        text-align: center;
+        margin-top: 1rem;
+      }
+      .back-link {
+        text-align: center;
+        margin-top: 0.25rem;
+      }
+
+      .back-link a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .back-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <form id="loginForm" class="login-form">
+        <h2>INVATEC</h2>
+        <div class="form-group-a">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group-a">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <label for="userType">User Type:</label>
+          <select id="userType" name="userType" required>
+            <option value="admin">Admin</option>
+            <option value="asesor">Asesor</option>
+          </select>
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+        <p id="errorMessage" class="error-message"></p>
+      </form>
+      <div class="back-link">
+        <a href="userIndex.html">Regresar al Inicio</a>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

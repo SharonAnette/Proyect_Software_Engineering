@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="auto">
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./index_files/color-modes.js.descarga"></script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>INVATEC</title>
+    <script src="script.js"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link href="./index_files/bootstrap(1).min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="./index_files/css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./index_files/blog.css" rel="stylesheet">
+    </head>
+
+    <style>
+        /* Personalización del color de las flechas */
+        .carousel-control-prev, .carousel-control-next {
+        filter: invert(90%) sepia(1) saturate(5) hue-rotate(150deg); /* Cambia el color de la flecha */
+        }
+    </style>
+
+    <body class="bg-dark-subtle">
+
+        <!-- Barra Superior LOGO/NOMBRE/LOGIN-->
+        <nav class="navbar sticky-top bg-primary" style="height: 60px;" data-bs-theme="emphasis">
+            <div class="container-fluid">
+                <!-- IMAGEN LOGO INVATEC -->
+                <div class="position-absolute top-50 start-25 translate-middle-y">
+                    <img src="https://cliente.tuneupprocess.com/ApiWeb/UploadFiles/69132d77-df15-43dc-8b80-31e5f8658f81.png/LOGO.png" alt="Logo" width="55" height="55" class="d-inline-block align-text-top">
+                </div>
+                <!-- nombre central -->
+                <div class="position-absolute top-50 start-50 translate-middle text-white">
+                    INVATEC
+                </div>
+                <a class="navbar-brand" href="login.html">
+                    <!-- Boton Login -->
+                    <div class="position-absolute top-50 end-0 translate-middle-y">                   
+                        <button type="button" class="btn btn-outline-light">Iniciar Sesión</button>     
+                    </div>
+                
+                </a>
+            </div>
+        </nav>
+        
+
+        <main class="container">
+
+            <!-- BARRA SUPERIOR DE BUSQUEDA/ACERCA DE ESCOM/ CONTACTO-->
+            <ul class="nav nav-tabs justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="userIndex.html">Inicio</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="#">Busqueda Avanzada</a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link" href="userAbout.html">Acerca de ESCOM</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="userContact.html">Contacto</a>
+                </li>
+              </ul>
+
+            <br>
+            
+            <!-- MOTOR DE BUSQUEDA-->  
+            <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+                <form id="searchForm">
+                    <h2>Busqueda básica</h2>
+                    <!--Palabras clave de busqueda-->
+                    <label for="keywordsInput" class="form-label">Nombre palabras clave de su Tesis</label>
+                    <input class="form-control" list="datalistOptions" id="keywordsInput" name="keywords" placeholder="Ingrese palabras claves de su tesis">
+                    <datalist id="datalistOptions">
+                        <!-- Options can be added here if needed -->
+                    </datalist>
+
+                    <!--Carrera-->
+                    <label for="careerSelect" class="form-label">Carrera</label>
+                    <select class="form-select" id="careerSelect" name="career" aria-label="Default select example">
+                        <option selected>Selecciona la carrera de la Tesis</option>
+                        <option value="1">SC</option>
+                        <option value="2">IA</option>
+                        <option value="3">CD</option>
+                    </select>
+
+                    <!--Año-->
+                    <label for="startYearInput" class="form-label">Periodo</label>
+                    <div class="row g-3">
+                        <div class="col">
+                            <input type="text" class="form-control" id="startYearInput" name="startYear" placeholder="Año de inicio" aria-label="Año de inicio">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="endYearInput" name="endYear" placeholder="Año de fin" aria-label="Año de fin">
+                        </div>
+                    </div>
+
+                    <!-- Botón de búsqueda -->
+                    <button type="button" class="btn btn-primary mt-3" onclick="search()">Buscar</button>
+
+                </form>
+            </div>
+
+
+            <br>
+            <!-- TESIS MÁS BUSCADAS-->
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative text-body-emphasis bg-body-secondary">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0">Tesis más buscadas</h3>
+                    <div class="mb-1 text-body-secondary">hasta fecha acual*</div>
+
+                    <!--Lista del top más buscadas-->
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action">primero</button>
+                        <button type="button" class="list-group-item list-group-item-action">segundo</button>
+                        <button type="button" class="list-group-item list-group-item-action">tercis</button>
+                        <button type="button" class="list-group-item list-group-item-action">cuarto</button>
+                        <button type="button" class="list-group-item list-group-item-action">quinto</button>
+                    </div>                    
+                        
+                        <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                    </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="360" height="270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>IMG1</title>
+                            <!-- Reemplaza el rectángulo con la imagen -->
+                            <image href="https://i.ytimg.com/vi/jx_GaM2jVS8/maxresdefault.jpg" width="100%" height="100%" />
+                            <!-- El texto "Thumbnail" se puede eliminar si ya no se necesita -->
+                          </svg>         
+                    </div>
+                </div>
+
+            <br>
+            <!-- TESIS POR CATALOGOS-->
+            <div data-aos="fade-down" class="aos-init aos-animate rounded">
+                <div id="Catalogo" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-touch="true">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#Catalogo" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#Catalogo" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item " data-bs-interval="3000">
+                            <div class="card-group gap-3">
+                                <div class="card text-white bg-body-secondary rounded">           <!-- indeice 1-->
+                                    <h3 class="card-title bg-body-secondary text-center text-info">índice 1</h3>
+                                    <div class="card-body bg-body-secondary">       
+                                        <p class="card-text text-center fw-lighter lh-sm text-info">Listado</p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">An item</li>
+                                            <li class="list-group-item">A second item</li>
+                                            <li class="list-group-item">A third item</li>
+                                            <li class="list-group-item">A fourth item</li>
+                                            <li class="list-group-item">And a fifth one</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-body-secondary">eeeeeeeeeee</small>
+                                    </div>  
+                                </div>
+                    
+                                <div class="card text-white bg-body-secondary rounded">           <!-- indeice 2-->
+                                    <h3 class="card-title bg-body-secondary text-center text-warning">índice 2</h3>                  
+                                    <div class="card-body bg-body-secondary">       
+                                        <p class="card-text bg-body-secondary text-center fw-lighter lh-sm text-warning">Listado</p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">An item</li>
+                                            <li class="list-group-item">A second item</li>
+                                            <li class="list-group-item">A third item</li>
+                                            <li class="list-group-item">A fourth item</li>
+                                            <li class="list-group-item">And a fifth one</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-body-secondary text-center">eeeeeeeeeeee</small>
+                                    </div>  
+                                </div>
+                    
+                                <div class="card text-white bg-body-secondary rounded">           <!-- indeice 3-->
+                                    <h3 class="card-title bg-body-secondary text-center text-secondary">índice 3</h3>
+                                    <div class="card-body bg-body-secondary">       
+                                        <p class="card-text bg-body-secondary text-center fw-lighter lh-sm">Listado</p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">An item</li>
+                                            <li class="list-group-item">A second item</li>
+                                            <li class="list-group-item">A third item</li>
+                                            <li class="list-group-item">A fourth item</li>
+                                            <li class="list-group-item">And a fifth one</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-body-secondary">eeeeeeeee</small>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item active" data-bs-interval="3000">
+                            <div class="card-group gap-3">
+
+                                <div class="card text-white bg-body-secondary rounded">           <!-- indeice 4-->
+                                    <h3 class="card-title bg-body-secondary text-center text-danger">índice 4</h3>            
+                                    <div class="card-body bg-body-secondary">       
+                                        <p class="card-text bg-body-secondary text-center fw-lighter lh-sm text-danger">listado</p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">An item</li>
+                                            <li class="list-group-item">A second item</li>
+                                            <li class="list-group-item">A third item</li>
+                                            <li class="list-group-item">A fourth item</li>
+                                            <li class="list-group-item">And a fifth one</li>
+                                        </ul>
+                                    </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary text-center">eeeeeeeeeee</small>
+                                </div>  
+                                </div>
+                    
+                                <div class="card text-white bg-body-secondary rounded">           <!-- indeice 5-->
+                                    <h3 class="card-title text-center bg-body-secondary text-info">índice 5</h3>
+                                    <div class="card-body bg-body-secondary">       
+                                        <p class="card-text bg-body-secondary text-center fw-lighter lh-sm text-info">Listadoooo</p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">An item</li>
+                                            <li class="list-group-item">A second item</li>
+                                            <li class="list-group-item">A third item</li>
+                                            <li class="list-group-item">A fourth item</li>
+                                            <li class="list-group-item">And a fifth one</li>
+                                        </ul>
+                                   </div>
+                                    <div class="card-footer">
+                                        <small class="text-body-secondary text-center">eeeeeeeeeeeee</small>
+                                    </div>  
+                                </div>
+
+                                <div class="card text-black bg-body-secondary rounded">           <!-- indeice 6-->
+                                    <h3 class="card-title bg-body-secondary text-center text-primary">índice 6</h3>
+                                    <div class="card-body bg-body-secondary">       
+                                        <p class="card-text bg-body-secondary text-center fw-lighter lh-sm text-primary">listado</p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">An item</li>
+                                            <li class="list-group-item">A second item</li>
+                                            <li class="list-group-item">A third item</li>
+                                            <li class="list-group-item">A fourth item</li>
+                                            <li class="list-group-item">And a fifth one</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-body-secondary text-center">eeeeeeeee</small>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>                
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#Catalogo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#Catalogo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+            
+            
+            <br>
+            <!-- DERECHOS RESERVADOS Y CONTACTO-->
+            <footer>
+                <div class="p-5 p-md-4 mb-4 rounded text-body-emphasis bg-body-secondary">
+                    <!--Derechos Reservados -->
+                    <div class="container-fluid text-center px-4 p-1 text-black bg-body-secondary">
+                            <div class="row align-items-start">
+                                <div class="col text-dark">
+                                    <p>© Derechos Reservados</p>
+                                </div>
+                            </div>
+                    </div>    
+        
+                    <!--Enlaces -->
+                    <div class="container text-center bg-body-secondary">
+                        <div class="row align-items-start">
+                            <div class="col text-info">
+                                <a href="https://www.escom.ipn.mx/">Página Web</a>
+                            </div>
+                            <div class="col text-info">
+                                <a href="https://www.facebook.com/escomipnmx/">Facebook</a> 
+                            </div>
+                            <div class="col text-info">
+                                <a href="https://twitter.com/escomunidad/">X</a>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </footer>
+
+            
+
+        </main>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./index_files/color-modes.js.descarga"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.122.0" />
+    <title>INVATEC</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <link
+      href="./index_files/bootstrap(1).min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Custom styles for this template -->
+    <link href="./index_files/css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="./index_files/blog.css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-dark-subtle">
+    <!-- Barra Superior LOGO/NOMBRE/LOGIN-->
+    <nav
+      class="navbar sticky-top bg-primary"
+      style="height: 60px"
+      data-bs-theme="emphasis"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="login.html">
+          <!-- IMAGEN LOGO INVATEC -->
+          <div class="position-absolute top-50 start-25 translate-middle-y">
+            <img
+              src="https://cliente.tuneupprocess.com/ApiWeb/UploadFiles/69132d77-df15-43dc-8b80-31e5f8658f81.png/LOGO.png"
+              alt="Logo"
+              width="55"
+              height="55"
+              class="d-inline-block align-text-top"
+            />
+          </div>
+          <!-- nombre central -->
+          <div
+            class="position-absolute top-50 start-50 translate-middle text-white"
+          >
+            INVATEC
+          </div>
+          <!-- Boton Login -->
+          <div class="position-absolute top-50 end-0 translate-middle-y">
+            <button type="button" class="btn btn-outline-light">Login</button>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <!-- BARRA SUPERIOR DE BUSQUEDA/ACERCA DE ESCOM/ CONTACTO-->
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Busqueda Avanzada</a>
+      </li> -->
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          aria-current="page"
+          href="thesis-form.html"
+          >Registrar tesis</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">Acerca de ESCOM</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contacto</a>
+      </li>
+    </ul>
+    <br />
+
+    <!-- REGISTRAR TESIS -->
+    <div class="container">
+      <h1>Registrar Nueva Tesis</h1>
+      <form id="thesis-form">
+        <div class="form-group">
+          <label for="titulo">Título de la Tesis:</label>
+          <input type="text" id="titulo" name="titulo" required />
+        </div>
+        <div class="form-group">
+          <label for="fecha">Fecha de Publicación:</label>
+          <input type="date" id="fecha" name="fecha" required />
+        </div>
+        <div class="form-group">
+          <label for="archivo">Archivo PDF:</label>
+          <input
+            type="file"
+            id="archivo"
+            name="archivo"
+            accept="application/pdf"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Autores:</label>
+          <div id="autores-container" class="autores-container">
+            <div class="autor">
+              <input
+                type="text"
+                placeholder="Apellido Paterno"
+                class="apellido-paterno"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Apellido Materno"
+                class="apellido-materno"
+                required
+              />
+              <input
+                type="text"
+                placeholder="Nombre(s)"
+                class="nombres"
+                required
+              />
+              <button type="button" onclick="removeAuthor(this)">
+                Eliminar
+              </button>
+            </div>
+          </div>
+          <button type="button" onclick="addAuthor()">Agregar Autor</button>
+        </div>
+        <div class="form-group">
+          <label for="asesor-principal">Asesor Principal:</label>
+          <select
+            id="asesor-principal"
+            name="asesor-principal"
+            required
+          ></select>
+        </div>
+        <div class="form-group">
+          <label for="asesor-secundario">Asesor Secundario (Opcional):</label>
+          <select id="asesor-secundario" name="asesor-secundario">
+            <option value="">Seleccionar...</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Etiquetas:</label>
+          <div id="etiquetas" class="etiquetas-container"></div>
+        </div>
+        <div
+          id="error-message"
+          class="error-message"
+          style="display: none"
+        ></div>
+        <button type="submit">Registrar Tesis</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+
+    <br />
+    <!-- DERECHOS RESERVADOS Y CONTACTO-->
+    <footer>
+      <div class="p-5 p-md-4 mb-4 rounded text-body-emphasis bg-body-secondary">
+        <!--Derechos Reservados -->
+        <div
+          class="container-fluid text-center px-4 p-1 text-black bg-body-secondary"
+        >
+          <div class="row align-items-start">
+            <div class="col text-dark">
+              <p>© Derechos Reservados</p>
+            </div>
+          </div>
+        </div>
+
+        <!--Enlaces -->
+        <div class="container text-center bg-body-secondary">
+          <div class="row align-items-start">
+            <div class="col text-info">
+              <a href="https://www.escom.ipn.mx/">Página Web</a>
+            </div>
+            <div class="col text-info">
+              <a href="https://www.facebook.com/escomipnmx/">Facebook</a>
+            </div>
+            <div class="col text-info">
+              <a href="https://twitter.com/escomunidad/">X</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
